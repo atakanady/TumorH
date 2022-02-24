@@ -35,15 +35,20 @@ def index_auth():
 def instruct():
     return render_template("instructions.html")
 
+@app.route('/evre')
+def ifelse():
+    pred = session.get('pred_label', None)
+    f_name = session.get('filename', None)
+    return render_template('evre.html', pred=pred, f_name=f_name)
 
-@app.route('/pred_page')
+@app.route('/evre')
 def pred_page():
     pred = session.get('pred_label', None)
     f_name = session.get('filename', None)
     return render_template('pred.html', pred=pred, f_name=f_name)
 
 
-@app.route("/upload", methods=['POST', 'GET'])
+@app.route("/upload", methods=['GET', 'POST'])
 def upload():
     try:
         if request.method == 'POST':

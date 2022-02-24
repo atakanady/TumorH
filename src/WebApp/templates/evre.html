@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <title> Tahmin Sonucu | TumorH </title>
+        <link href="https://fonts.googleapis.com/css?family=Lobster+Two" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400i,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Concert+One" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+
+        <!-- Favicons -->
+        <link href="{{ url_for('static',filename='custom/t-icon.png') }}" rel="icon">
+        <link href="{{ url_for('static',filename='custom/t-icon.png') }}" rel="apple-touch-icon">
+
+        <link href="{{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/pred.css') }}"/>
+
+        <script src="{{url_for('static', filename='js/html2pdf.bundle.js')}}"></script>
+        <script src="{{url_for('static', filename='js/script.js')}}"></script>
+    </head>
+
+
+    <body>
+        <header>
+                <nav>
+                  <ul>
+                    <li><a href="/"><img src="{{ url_for('static', filename='custom/logo.png') }}" height=40px width=40px alt="neuralBlack"/> <p> TumorH </p></a></li>
+                  </ul>
+                </nav>
+        </header>
+        <div class="cardpred-manuel">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12" id="invoice">
+                        <div class="card-box">
+                            <div class="row d-flex align-items-center">
+                                <div class="col-md-6">
+                                    <img src="{{ url_for('static', filename='custom/Testing/test_veri/image(1).jpg') }}" class="img-fluid"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="pred-title">{{ pred }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                     <h1>RAPOR ANALİZİ</h1>
+
+                                    <h3>Tümör Sınıfınız : {{ pred }}</h3>
+                                    {% if "Glioma Tümörü" == pred %}
+                                        <h3>Evre : II.</h3>
+                                        <br>
+                                        <h2>MRI görüntülerinden tümör olduğu belirlendi. Rapor çıktılarını doktorunuza göstermenizi tavsiye ederim.</h2>
+                                        <br>
+                                        <h4>Gliomlar tüm beyin tümörlerinin yaklaşık %30'unu oluşturur ve sıklıkla kötü huyludur yani habistir.
+                                            Belirtileri beyin tümörlerindeki genel belirtilerdir. Baş ağrısı, nöbetler, mide bulantısı ve kusma görülebilir. Yerleştikleri bölgelere bağlı olarak da belirtiler verirler.</h4>
+
+                                    {% elif "Hipofiz Tümörü" == pred %}
+                                        <h3>Evre : II.</h3>
+                                        <br>
+                                        <h2>MRI görüntülerinden tümör olduğu belirlendi. Rapor çıktılarını doktorunuza göstermenizi tavsiye ederim.</h2>
+                                        <br>
+                                        <h4>Hipofiz adenomları; fonksiyonları ve yapıları itibariyle iyi huylu tümörler olsa da; ulaşabildikleri boyutlar ve fonksiyon göstermelerine bağlı olarak çeşitli klinik belirtilere neden olarak sağlığı olumsuz etkileyebilir. Oldukça nadiren, hipofiz tümörleri kanserleşebilir.</h4>
+
+                                    {% elif "Sağlıklı" == pred %}
+                                        Sağlıklı Beyin MRI
+
+                                    {% elif "Meningioma Tümörü" == pred %}
+                                        <h3>Evre : II.</h3>
+                                        <h2>MRI görüntülerinden tümör olduğu belirlendi. Rapor çıktılarını doktorunuza göstermenizi tavsiye ederim.
+                                            Meninjiyomlar, beyni saran zarlardan kaynaklanan, yavaş büyüyen ve çoğu iyi huylu olan tümörlerdir</h2>
+                                    {% endif %}
+
+                                    <h2>Beyin Tümörü Evreleri&nbsp;</h2>
+                                    <p><strong>Beyin tümörü evreleri</strong> kişinin tedavisini ve yaşam sürecini belirlemektedir. Diğer bütün kötü huylu tümörlerde olduğu gibi beyin tümörlerinde de erken teşhis önemlidir.&nbsp;</p>
+                                    <p>Günümüzde beyin tümörlerinin tedavisinde tümörün patolojik tanısı esas alınarak ; ona göre cerrahi, radyoterapi (ışın tedavisi), radyo-cerrahi ve kemoterapi (ilaç tedavisi) gibi yöntemlere ayrı ayrı ya da birleşik olarak baş vurulmaktadır.</p>
+                                    <h2>Birinci Evre</h2>
+                                    <p>&nbsp;İlk evre hastalığın henüz başlangıcını oluşturmaktadır. Kişinin yaşadığı baş ağrısı ve diğer belirtiler ilk evrede görülmektedir. Bu evredeki bir hasta ameliyat edilmektedir ve ameliyat sonrasında kemoterapi ve radyoterapi tedavisi görmektedir. &nbsp;</p>
+                                    <p>Beyin tümörleri oldukça çeşitlidir ancak 1. Evredeki bir beyin tümörüne müdahale edildiği takdirde hastanın yaşam süresi oldukça uzamaktadır.</p>
+                                    <h2>İkinci Evre</h2>
+                                    <p>Beyin tümöründe ikinci evre de yine ameliyat ile tedavi edilebilmenin mümkün olduğu bir evredir. İkinci evrede teşhis edilen beyin tümöründe henüz çok geç kalınmamıştır ve hasta tedavi edilebilir. İkinci evrede görülen belirtiler baş ağrıları , kusma ve halsizliktir. İkinci evrede beyin tümörü teşhis ve tedavi edilen hastaların&nbsp; yaşam süresi de yine ilk evredeki hastalar gibi oldukça uzamaktadır.</p>
+                                    <h2>Üçüncü Evre</h2>
+                                    <p>Beyin tümörünün evresini büyüklüğü ve nerede olduğu belirlemektedir. Üçüncü evre hastalığın ilerlemiş olduğu anlamına gelir.&nbsp;</p>
+                                    <p>Unutkanlık, bilinç kayıpları, baş ağrıları ve vücudun bazı bölümlerinde kısa süreli yaşanan hafif felçler üçüncü evre beyin tümörünün başlıca belirtilerindendir. Bu evrede hasta bazen kolunun ve ayağının hakimiyetini yitirir. Ayrıca bu evrede hastalarda konuşma bozuklukları da görülmektedir. Yaşam süresi çoğu hastada tümörün çeşidine bağlı olmaktadır.</p>
+                                    <h2>Dördüncü Evre</h2>
+                                    <p>Dördüncü evre en tehlikeli evre olmakla birlikte buna bağlı olarak aynı zamanda zorlu bir süreçtir. Bu evrede tümörün çeşidi de önemli rol oynamaktadır. Hasta, baş ağrısı, kusma ve görme bozuklukları yaşar. Bunun yanı sıra; tümör ilerlediği için bilinç bozuklukları, unutkanlık, denge kaybı, konuşma güçlüğü, işitmede azalma ve anlamada yetersizlik çekme gibi semptomlar da bu evrede görülmektedir.</p>
+                                    <p>Bu evre beyin tümörlerinde kemoterapi ve radyoterapi uygulamalarıyla tedavi yöntemlerine de başvurulmaktadır.&nbsp;</p>
+
+
+                                    <button type="button" id="downloadRep" onclick="saveDocument()">Raporu İndir</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+

@@ -1372,7 +1372,7 @@ section {
   text-align: center;
   border-radius: 5px;
   background: #fff;
-  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.08);
+  /*box-shadow: 0px 0 30px rgba(1, 41, 112, 0.08);*/
   transition: 0.3s;
 }
 
@@ -1385,12 +1385,16 @@ section {
   position: absolute;
   content: "";
   left: 0;
-  bottom: 0;
+  /* bottom: 0; */
   height: 100%;
-  width: 100%;
+  width: 120%;
   background: url(../img/team-shape.svg) no-repeat center bottom;
   background-size: contain;
   z-index: 1;
+}
+
+.team .member .bottom-manuel:after {
+    bottom: -2px !important;
 }
 
 .team .member .social {
@@ -1447,12 +1451,12 @@ section {
   color: #5e5e5e;
 }
 
-.team .member:hover {
+.team .member-img:hover {
   transform: scale(1.08);
   box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
 }
 
-.team .member:hover .social {
+.team .member-img:hover .social {
   right: 8px;
   opacity: 1;
 }

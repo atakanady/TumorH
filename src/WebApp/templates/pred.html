@@ -2,7 +2,8 @@
 <html>
     
     <head>
-        <title> Prediction Result | TumorInsight </title>
+
+        <title> Tahmin Sonucu | TumorH </title>
         <link href="https://fonts.googleapis.com/css?family=Lobster+Two" rel="stylesheet"> 
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400i,700" rel="stylesheet"> 
         <link href="https://fonts.googleapis.com/css?family=Concert+One" rel="stylesheet">
@@ -13,13 +14,16 @@
         <link href="{{ url_for('static',filename='custom/t-icon.png') }}" rel="apple-touch-icon">
 
         <link rel="stylesheet" href="{{ url_for('static', filename='css/pred.css') }}"/>
+
+        <script src="{{url_for('static', filename='js/html2pdf.bundle.js')}}"></script>
+        <script src="{{url_for('static', filename='js/script.js')}}"></script>
     </head>
     
     <header>
             <nav>
               <div class="nav-bg"></div>
               <ul>
-                <li><a href="/"><img src="{{ url_for('static', filename='custom/logo.png') }}" height=40px width=40px alt="neuralBlack"/> <p> TumorInsight </p></a></li>
+                <li><a href="/"><img src="{{ url_for('static', filename='custom/logo.png') }}" height=40px width=40px alt="neuralBlack"/> <p> TumorH </p></a></li>
               </ul>
             </nav>
     </header>
@@ -30,15 +34,15 @@
     </label>
     
     <body>
+
         <div class="cardpred">
-            <div class="container">
-              <img src="{{ url_for('static', filename='custom/op.jpg') }}" height=52.5% width=52.5%/>
+            <div class="container" id="invoice">
+              <img src="{{ url_for('static', filename='bt_image') }}" height=52.5% width=38%/>
               <p>{{ pred }}</p>
-<!--              <button type="button" id="goHome"><a href="/" style="text-decoration: None; color: white;">Go home</button>-->
-              <button type="button" id="dowloadRep"><a href="/" style="text-decoration: None; color: white;">Download Report</a></button>
-<!--              <button type="button" id="shareRep"><a href="/" style="text-decoration: None; color: white;">Share the report</button>-->
+                <button type="button" id="shareRep"><a href="/evre" style="text-decoration: None; color: white;">Evre Analizi İçin Tıkla</a></button>
             </div>
+            <!--    button type="button" id="downloadRep" onclick="saveDocument()">Raporu İndir</button-->
         </div>
     </body>
-
 </html>
+

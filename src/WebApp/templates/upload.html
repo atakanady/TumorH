@@ -18,15 +18,16 @@
 
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/upload.css') }}"/>
 
-	<title> MRI Upload | TumorInsight </title>
+	<title> MRI Yükle | TumorH </title>
 
 </head>
 <body>
+
 	<div class="bgblack" id="front"><div class="bg"></div></div>
-	<div class="fronttext">
-		We are Committed to cure Cancer
+		<div class="fronttext">
+		Kanserli Dokuyu Hızlı Tespit Et
 	</div>
-	<img class="logopic" src="{{ url_for('static',filename='custom/upload_logo.png') }}">
+	<img class="logopic" src="{{ url_for('static',filename='custom/t-icon.png') }}">
 	<p class="animated pulse downarrow"><a href="#info"><i class="fa fa-chevron-circle-down"></i></a></p>
 	<div class="infobg"></div>
 	<div class="info" id="info">
@@ -34,26 +35,26 @@
 				<a href="#front"><i class="material-icons">keyboard_arrow_up</i></a>
 			</p>
 			<p class="infohead">
-				We are Here to Help
+				Bu Proje Sizlere Yardım Etmek İçin Burada
 			</p>
 
 		<div class="infocols">
 		<div class="infocol">
-			<p class="infotext infotopic">Symptoms</p>
+			<p class="infotext infotopic">Belirti</p>
 			<p class="infotext">
-				Symptoms vary widely or they may not occur at all. Some patients have abnormal bumps, unexplained fevers, night sweats or unintentional weight loss.
+				Belirtiler büyük ölçüde değişir veya hiç oluşmayabilir. Bazı hastalarda anormal çarpmalar, açıklanamayan ateşler, gece terlemeleri veya kasıtsız kilo kaybı vardır.
 			</p>
 		</div>
 		<div class="infocol">
-			<p class="infotext infotopic">Prevention</p>
+			<p class="infotext infotopic">Önleme</p>
 			<p class="infotext">
-				This includes maintaining a healthy lifestyle, avoiding exposure to known cancer-causing substances, and taking medicines or vaccines that can prevent cancer from developing.
+				Bu, sağlıklı bir yaşam tarzını sürdürmeyi, bilinen kansere neden olan maddelere maruz kalmaktan kaçınmayı ve kanserin gelişmesini engelleyebilecek ilaçlar veya aşılar almayı içerir.
 			</p>
 		</div>
 		<div class="infocol infocollast">
-			<p class="infotext infotopic">Causes</p>
+			<p class="infotext infotopic">Nedenler</p>
 			<p class="infotext">
-				Common causes includes smoking and tobacco, improper diet and physical activity, radiation from the sun and other types of radiation and viruses and other infections.
+				Yaygın nedenler arasında sigara ve tütün, uygunsuz beslenme ve fiziksel aktivite, güneşten gelen radyasyon ve diğer radyasyon türleri ve virüsler ve diğer enfeksiyonlar bulunur.
 
 			</p>
 		</div>
@@ -68,16 +69,16 @@
 			<a href="#info"><i class="material-icons">keyboard_arrow_up</i></a>
 		</p>
 		<p class="uploadhead">
-			MRI Tumor Detection
+			MRI Tümör Tespiti
 		</p>
 		<p class="uploadtext">
-			Upload your MRI scan image for processing
+			MRI Tarama Resminizi Yükleyin
 		</p>
 		<div class="form">
 			<form name="bt_classifier" id="form1" enctype="multipart/form-data" action="/upload" method="POST">
 				<input class="browse" type="file" name="bt_image" id="bt_image">
-<!--				<input class="submit" type="submit">  	  -->
-				<button type='submit' name='submit' id='sub'>Classify</button>
+				<!--input class="submit" type="submit" id="sub"-->
+				<button type='submit' name='submit'>Tespit Et</button>
 			</form>
 		</div>
 

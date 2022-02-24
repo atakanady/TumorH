@@ -9,7 +9,7 @@ from torchvision.models import resnet50
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
-LABELS = ['None', 'Meningioma', 'Glioma', 'Pitutary']
+LABELS = ['Sağlıklı', 'Meningioma Tümörü ', 'Glioma Tümörü', 'Hipofiz Tümörü']
 
 device = "cuda" if is_available() else "cpu"
 
