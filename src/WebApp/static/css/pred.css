@@ -202,7 +202,9 @@ nav a:hover {
 .btn
 {
     border: 0px solid rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
+    color: rgb(0, 0,a:visited {
+    color: black;
+    text-decoration: none; 0);
     background-color: rgb(255, 255, 255);
     padding: 8px 20px;
     border-radius: 8px;
