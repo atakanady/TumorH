@@ -27,7 +27,7 @@
 		<div class="fronttext">
 		Kanserli Dokuyu Hızlı Tespit Et
 	</div>
-	<img class="logopic" src="{{ url_for('static',filename='custom/t-icon.png') }}">
+	<img class="logopic" src="{{ url_for('static',filename='custom/logo.png') }}">
 	<p class="animated pulse downarrow"><a href="#info"><i class="fa fa-chevron-circle-down"></i></a></p>
 	<div class="infobg"></div>
 	<div class="info" id="info">
@@ -74,11 +74,11 @@
 		<p class="uploadtext">
 			MRI Tarama Resminizi Yükleyin
 		</p>
+
 		<div class="form">
 			<form name="bt_classifier" id="form1" enctype="multipart/form-data" action="/upload" method="POST">
 				<input class="browse" type="file" name="bt_image" id="bt_image">
-				<!--input class="submit" type="submit" id="sub"-->
-				<button type='submit' name='submit'>Tespit Et</button>
+				<input class="submit" type="submit" id="sub">
 			</form>
 		</div>
 

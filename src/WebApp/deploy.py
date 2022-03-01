@@ -1,8 +1,10 @@
 import os
 import requests
-from flask import Flask, render_template, flash, redirect, url_for, session, logging, request, session
+from flask import Flask,send_file, render_template, flash, redirect, url_for, session, logging, request, session
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
+from flask_mail import Mail, Message
+
 
 UPLOAD_FOLDER = '../CNN/test_images'
 ALLOWED_EXTENSIONS = ['png', 'jpg', 'jpeg']
@@ -35,11 +37,13 @@ def index_auth():
 def instruct():
     return render_template("instructions.html")
 
+
 @app.route('/evre')
 def ifelse():
     pred = session.get('pred_label', None)
     f_name = session.get('filename', None)
     return render_template('evre.html', pred=pred, f_name=f_name)
+
 
 @app.route('/evre')
 def pred_page():
@@ -76,7 +80,6 @@ def upload():
         print(e, '\n')
 
     return render_template("upload.html")
-
 
 @app.route("/login", methods=["GET", "POST"])
 def login():

@@ -7,8 +7,11 @@ from PIL import Image
 from torchvision.transforms import Compose, ToTensor, Resize
 from torchvision.models import resnet50
 from flask import Flask, jsonify, request
+from flask_mail import Mail, Message
+
 
 app = Flask(__name__)
+
 LABELS = ['Sağlıklı', 'Meningioma Tümörü ', 'Glioma Tümörü', 'Hipofiz Tümörü']
 
 device = "cuda" if is_available() else "cpu"
@@ -19,13 +22,13 @@ for param in resnet_model.parameters():
     param.requires_grad = True
 
 n_inputs = resnet_model.fc.in_features
-resnet_model.fc = Sequential(Linear(n_inputs, 2048),
+resnet_model.fc = Sequential(Linear(n_inputs, 64),
                              SELU(),
                              Dropout(p=0.4),
-                             Linear(2048, 2048),
+                             Linear(64, 64),
                              SELU(),
                              Dropout(p=0.4),
-                             Linear(2048, 4),
+                             Linear(64, 4),
                              LogSigmoid())
 
 for name, child in resnet_model.named_children():
@@ -33,7 +36,7 @@ for name, child in resnet_model.named_children():
         params.requires_grad = True
 
 resnet_model.to(device)
-resnet_model.load_state_dict(load('../CNN/models/bt_resnet50_model.pt', map_location=DEVICE(device)))
+resnet_model.load_state_dict(load('../CNN/models/bt_resnet50_modell.pt', map_location=DEVICE(device)))
 resnet_model.eval()
 
 
